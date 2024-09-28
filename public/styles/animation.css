@@ -1,0 +1,77 @@
+.Polygon_1{
+  animation: changeStrokeColor 1s infinite;
+}
+
+@keyframes changeStrokeColor {
+  0% {
+      stroke: #54757E;
+  }
+  25% {
+      stroke: #f1aad4;
+  }
+  50% {
+      stroke: #ffb6a0;
+  }
+  75% {
+      stroke: #f1aad4;
+  }
+  85% {
+      stroke: #043d4e;
+  }
+  100% {
+    stroke: #ff835d;
+}
+}
+
+
+
+.Polygon_2{
+  animation: changeStrokeColor1 1s infinite;
+}
+
+@keyframes changeStrokeColor1 {
+  0% {
+      stroke: #043d4e;
+  }
+  25% {
+      stroke: #54757e;
+  }
+  50% {
+      stroke: #e5a0ff;
+  }
+  75% {
+      stroke: #d155ff;
+  }
+  85% {
+      stroke: #f1aad4;
+  }
+  100% {
+    stroke: #ff835d;
+}
+}
+
+.Polygon_3{
+  animation: changeStrokeColor2 1s infinite;
+}
+
+@keyframes changeStrokeColor2 {
+  0% {
+      stroke: #e5a0ff;
+  }
+  25% {
+      stroke: #ffb6a0;
+  }
+  50% {
+      stroke: #54757e;
+  }
+  75% {
+      stroke: #d155ff;
+  }
+  85% {
+      stroke: #ff835d;
+  }
+  100% {
+    stroke: #ffb6a0;
+}
+}
+

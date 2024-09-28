@@ -1,0 +1,61 @@
+body {
+    margin: 0;
+    line-height: normal;
+  }
+
+  .popup-overlay {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    inset: 0;
+  }
+  
+  :root {
+    /* fonts */
+    --font-duru-sans: "Duru Sans";
+  
+    /* Colors */
+    --color-slategray: #54757e;
+  
+    /* Paddings */
+    --padding-5xs: 8px;
+    --padding-4xs-1: 8.1px;
+
+    /* fonts */
+  --font-duru-sans: "Duru Sans";
+  --font-poppins: "Poppins";
+  --font-doppio-one: "Doppio One";
+
+  /* font sizes */
+  --font-size-4xl: 23px;
+  --font-size-5xl: 24px;
+  --font-size-2xl: 21px;
+  --font-size-mid: 17px;
+  --font-size-13xl: 32px;
+  --font-size-lgi: 19px;
+  --font-size-7xl: 26px;
+  --font-size-3xl: 22px;
+  --font-size-lg: 18px;
+  --font-size-9xl: 28px;
+  --font-size-3xl: 22px;
+
+  /* Colors */
+  --color-lightgoldenrodyellow: #04C3FD;
+  --color-gray: #292928;
+  --color-dimgray-100: #043D4E;
+  --color-darkslategray: #043d4e;
+  --color-black: #043D4E;
+
+  /* Gaps */
+  --gap-xl: 20px;
+
+  /* Paddings */
+  --padding-17xl: 36px;
+  --padding-mini: 15px;
+
+  /* Border radiuses */
+  --br-xl: 20px;
+}
+
+
+  
