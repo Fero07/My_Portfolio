@@ -125,7 +125,7 @@
               <div class="my-life-outside">My Life Outside Coding</div>
               <p class="blank-line">&nbsp;</p>
               <ul>
-              <li><p class="im-17-years">I’m 17 years old.</p></li>
+              <li><p class="im-17-years">I’m <%= new Date().getFullYear() - 2007 - (new Date().getMonth() < 4 || (new Date().getMonth() === 4 && new Date().getDate() < 20) ? 1 : 0) %> years old.</p></li>
               <p class="blank-line">&nbsp;</p>
               <li><p class="im-a-200">
                 I’m a 200 level Student of Obafemi Awolowo University.

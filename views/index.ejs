@@ -23,108 +23,126 @@
     
   </head>
 <body>
-<div id="partial-container">
+<div id="partial-container" style="display: none;">
 
 </div>
 
+<div class="loadscreen">
+  <div class="loader"></div>
+</div>
 
-</body>
+
+
 
 <script>
-  function loadPartial() {
-    const screenSize = window.innerWidth;
 
-    fetch(`/load-partial?screenSize=${screenSize}`)
-      .then(response => response.text())
-      .then(html => {
-        document.getElementById('partial-container').innerHTML = html;
-        clicker();
-      });
-  }
-
-  // Initial load
-  loadPartial();
-
-  // Check for resize and update content
-  let lastWidth = window.innerWidth;
-  let resizeTimeout;
-
-  function checkResize() {
-    const currentWidth = window.innerWidth;
-    if (currentWidth !== lastWidth) {
-      lastWidth = currentWidth;
-      loadPartial(); // Update content without reload
+  window.addEventListener('load', function () {
+          const loadingAnimation = document.getElementsByClassName('loadscreen')[0];
+          const content = document.getElementById('partial-container');
+        
+        setTimeout(() => {
+          loadingAnimation.style.display = 'none';
+          content.style.display = 'block';
+        }, 1500);
+        });
+    
+  
+    function loadPartial() {
+      const screenSize = window.innerWidth;
+  
+      fetch(`/load-partial?screenSize=${screenSize}`)
+        .then(response => response.text())
+        .then(html => {
+          document.getElementById('partial-container').innerHTML = html;
+          clicker();
+        });
     }
-  }
-
-  function debounce(func, wait) {
-    return function(...args) {
-      clearTimeout(resizeTimeout);
-      resizeTimeout = setTimeout(() => func.apply(this, args), wait);
-    };
-  }
-
-  window.addEventListener('resize', debounce(checkResize, 500));
-
-
-
-  function clicker() {
-  var mingcutemenuFill = document.getElementById("mingcutemenuFill");
-  var mdicancelBoldImage = document.getElementById("mdicancelBoldImage");
-  var popup = document.getElementById("menuBarPopup");
-
-  if (mingcutemenuFill && popup) {
-    // Function to open the popup
-    function openPopup() {
-      var popupStyle = popup.style;
-
-      // Disable scrolling when the popup opens
-      document.body.style.overflow = "hidden";
-
-      // Initial state for sliding in
-      popupStyle.position = "fixed"; // Fixed positioning to cover the viewport
-      popupStyle.right = "-200px"; // Start offscreen
-      popupStyle.display = "flex"; // Make it visible
-      popupStyle.transition = "right 1.2s ease"; // Transition for sliding in
-      popupStyle.zIndex = 100;
-      popupStyle.backgroundColor = "rgba(113, 113, 113, 0.3)";
-      popupStyle.alignItems = "flex-end";
-      popupStyle.justifyContent = "center";
-
-      // Trigger transition to slide in
-      setTimeout(() => {
-        popupStyle.right = "0"; // Move into view
-      }, 0);
-    }
-
-    // Function to close the popup
-    function closePopup() {
-      var popupStyle = popup.style;
-      popupStyle.right = "-100%"; // Slide out to the right
-      setTimeout(() => {
-        popupStyle.display = "none"; // Hide the popup after sliding out
-        document.body.style.overflow = "auto"; // Re-enable scrolling
-      }, 500); // Match the timeout to the transition duration (1.2s)
-    }
-
-    // Open the popup when clicking the menu icon
-    mingcutemenuFill.addEventListener("click", openPopup);
-
-    // Close the popup when clicking the cancel icon
-    mdicancelBoldImage.addEventListener("click", closePopup);
-
-    // Close the popup when clicking outside the popup
-    popup.addEventListener("click", function (e) {
-      // Check if the click was outside the popup and its children
-      if (popup.style.display === "flex") {
-        closePopup();
+  
+    // Initial load
+    loadPartial();
+  
+    // Check for resize and update content
+    let lastWidth = window.innerWidth;
+    let resizeTimeout;
+  
+    function checkResize() {
+      const currentWidth = window.innerWidth;
+      if (currentWidth !== lastWidth) {
+        lastWidth = currentWidth;
+        loadPartial(); // Update content without reload
       }
-    });
+    }
+  
+    function debounce(func, wait) {
+      return function(...args) {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => func.apply(this, args), wait);
+      };
+    }
+  
+    window.addEventListener('resize', debounce(checkResize, 500));
+  
+  
+  
+    function clicker() {
+    var mingcutemenuFill = document.getElementById("mingcutemenuFill");
+    var mdicancelBoldImage = document.getElementById("mdicancelBoldImage");
+    var popup = document.getElementById("menuBarPopup");
+  
+    if (mingcutemenuFill && popup) {
+      // Function to open the popup
+      function openPopup() {
+        var popupStyle = popup.style;
+  
+        // Disable scrolling when the popup opens
+        document.body.style.overflow = "hidden";
+  
+        // Initial state for sliding in
+        popupStyle.position = "fixed"; // Fixed positioning to cover the viewport
+        popupStyle.right = "-200px"; // Start offscreen
+        popupStyle.display = "flex"; // Make it visible
+        popupStyle.transition = "right 1.2s ease"; // Transition for sliding in
+        popupStyle.zIndex = 100;
+        popupStyle.backgroundColor = "rgba(113, 113, 113, 0.3)";
+        popupStyle.alignItems = "flex-end";
+        popupStyle.justifyContent = "center";
+  
+        // Trigger transition to slide in
+        setTimeout(() => {
+          popupStyle.right = "0"; // Move into view
+        }, 0);
+      }
+  
+      // Function to close the popup
+      function closePopup() {
+        var popupStyle = popup.style;
+        popupStyle.right = "-100%"; // Slide out to the right
+        setTimeout(() => {
+          popupStyle.display = "none"; // Hide the popup after sliding out
+          document.body.style.overflow = "auto"; // Re-enable scrolling
+        }, 500); // Match the timeout to the transition duration (1.2s)
+      }
+  
+      // Open the popup when clicking the menu icon
+      mingcutemenuFill.addEventListener("click", openPopup);
+  
+      // Close the popup when clicking the cancel icon
+      mdicancelBoldImage.addEventListener("click", closePopup);
+  
+      // Close the popup when clicking outside the popup
+      popup.addEventListener("click", function (e) {
+        // Check if the click was outside the popup and its children
+        if (popup.style.display === "flex") {
+          closePopup();
+        }
+      });
+    }
   }
-}
+  
+  // Call clicker function to set up event listeners
+  clicker();
+  
+       
+  </script>
+</body>
 
-// Call clicker function to set up event listeners
-clicker();
-
-     
-</script>

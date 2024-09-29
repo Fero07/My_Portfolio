@@ -139,7 +139,7 @@
       <div class="my-life-outside-coding-parent">
         <div class="my-life-outside">My Life Outside Coding</div>
         <div class="im-17-years-container">
-          <p class="im-17-years">I’m 17 years old.</p>
+          <p class="im-17-years">I’m <%= new Date().getFullYear() - 2007 - (new Date().getMonth() < 4 || (new Date().getMonth() === 4 && new Date().getDate() < 20) ? 1 : 0) %> years old.</p>
           <p class="blank-line">&nbsp;</p>
           <p class="im-a-200">
             I’m a 200 level Student of Obafemi Awolowo University.
